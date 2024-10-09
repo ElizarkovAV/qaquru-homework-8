@@ -151,7 +151,7 @@ public class RegistrationFormTests extends TestBase {
                 )
         );
     }
-    @MethodSource
+    @MethodSource("successRegistrationForDifferentHobbiesAndSubjects")
     @ParameterizedTest(name = "Успешная регистрация с хобби {0} и subject {1}")
     void successRegistrationForDifferentHobbiesAndSubjects(Hobby hobby, List<String> subjects) {
         //act
@@ -181,13 +181,5 @@ public class RegistrationFormTests extends TestBase {
                 .checkResult("Picture", picture)
                 .checkResult("Address", address)
                 .checkResult("State and City", state + " " + city);
-    }
-
-
-
-
-    @AfterEach
-    void afterEach() {
-        Selenide.closeWebDriver();
     }
 }
